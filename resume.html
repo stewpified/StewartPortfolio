@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Resume — Payton</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<div class="topbar">
+  <span class="topbar__title">PAYTON<span style="color:var(--accent)">_</span>DEV</span>
+  <button class="topbar__toggle" aria-label="Toggle navigation" aria-expanded="false">☰</button>
+</div>
+
+<div class="shell">
+  <nav class="sidebar" aria-label="Primary">
+    <div class="sidebar__brand">
+      <p class="sidebar__brand-title">PAYTON<span style="color:var(--accent)">_</span>DEV</p>
+      <span class="sidebar__brand-sub">gameplay & systems programmer</span>
+    </div>
+    <ul class="sidebar__nav">
+      <li><a class="sidebar__link" href="index.html">home</a></li>
+      <li><a class="sidebar__link" href="work.html">work</a></li>
+      <li><a class="sidebar__link is-active" href="resume.html">resume</a></li>
+      <li><a class="sidebar__link" href="contact.html">contact</a></li>
+    </ul>
+    <div class="sidebar__footer">
+      <div class="sidebar__socials">
+        <a href="https://github.com/" target="_blank" rel="noopener">github</a>
+        <a href="https://itch.io/" target="_blank" rel="noopener">itch.io</a>
+        <a href="https://www.linkedin.com/" target="_blank" rel="noopener">linkedin</a>
+      </div>
+      <div class="sidebar__status">
+        <span class="sidebar__status-dot"></span>
+        currently building in UE5
+      </div>
+    </div>
+  </nav>
+
+  <main class="main">
+    <div class="page-header">
+      <span class="eyebrow">// CV</span>
+      <h1>Resume</h1>
+      <p>A summary of experience, skills, and education. Replace the placeholder entries below with your own history.</p>
+      <a class="btn btn--ghost resume-download" href="assets/resume.pdf" download>↓ download PDF</a>
+    </div>
+
+    <section class="resume-section">
+      <h2>Experience</h2>
+
+      <div class="resume-entry">
+        <span class="resume-entry__period mono">2024 — Present</span>
+        <div>
+          <h3>Project / Studio Name</h3>
+          <span class="role">Gameplay Programmer (UE5)</span>
+          <p>Short description of your role and the systems you owned — e.g. designed and implemented the crafting, inventory, and item-scaling systems for a survival/simulation title in Blueprints and C++.</p>
+        </div>
+      </div>
+
+      <div class="resume-entry">
+        <span class="resume-entry__period mono">2022 — 2024</span>
+        <div>
+          <h3>Previous Role / Project</h3>
+          <span class="role">Title</span>
+          <p>Describe scope, team size, and technical contributions here.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="resume-section">
+      <h2>Skills</h2>
+      <div class="skills-grid">
+        <span class="skill-chip bracket-frame">Unreal Engine 5</span>
+        <span class="skill-chip bracket-frame">Blueprints</span>
+        <span class="skill-chip bracket-frame">C++</span>
+        <span class="skill-chip bracket-frame">Gameplay Systems</span>
+        <span class="skill-chip bracket-frame">Data-driven Design</span>
+        <span class="skill-chip bracket-frame">Version Control (Git)</span>
+        <span class="skill-chip bracket-frame">UI / UMG</span>
+        <span class="skill-chip bracket-frame">Debugging &amp; Profiling</span>
+      </div>
+    </section>
+
+    <section class="resume-section">
+      <h2>Education</h2>
+      <div class="resume-entry">
+        <span class="resume-entry__period mono">20XX — 20XX</span>
+        <div>
+          <h3>School / Program Name</h3>
+          <span class="role">Degree / Certificate</span>
+          <p>Relevant coursework, honors, or notable projects.</p>
+        </div>
+      </div>
+    </section>
+
+    <footer class="site-footer">
+      © <span id="year"></span> Payton — built with HTML, CSS &amp; a lot of Blueprint debugging.
+    </footer>
+  </main>
+</div>
+
+<script src="js/main.js"></script>
+<script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+</body>
+</html>

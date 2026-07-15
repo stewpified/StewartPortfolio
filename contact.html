@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contact — Payton</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<div class="topbar">
+  <span class="topbar__title">PAYTON<span style="color:var(--accent)">_</span>DEV</span>
+  <button class="topbar__toggle" aria-label="Toggle navigation" aria-expanded="false">☰</button>
+</div>
+
+<div class="shell">
+  <nav class="sidebar" aria-label="Primary">
+    <div class="sidebar__brand">
+      <p class="sidebar__brand-title">PAYTON<span style="color:var(--accent)">_</span>DEV</p>
+      <span class="sidebar__brand-sub">gameplay & systems programmer</span>
+    </div>
+    <ul class="sidebar__nav">
+      <li><a class="sidebar__link" href="index.html">home</a></li>
+      <li><a class="sidebar__link" href="work.html">work</a></li>
+      <li><a class="sidebar__link" href="resume.html">resume</a></li>
+      <li><a class="sidebar__link is-active" href="contact.html">contact</a></li>
+    </ul>
+    <div class="sidebar__footer">
+      <div class="sidebar__socials">
+        <a href="https://github.com/" target="_blank" rel="noopener">github</a>
+        <a href="https://itch.io/" target="_blank" rel="noopener">itch.io</a>
+        <a href="https://www.linkedin.com/" target="_blank" rel="noopener">linkedin</a>
+      </div>
+      <div class="sidebar__status">
+        <span class="sidebar__status-dot"></span>
+        currently building in UE5
+      </div>
+    </div>
+  </nav>
+
+  <main class="main">
+    <div class="page-header">
+      <span class="eyebrow">// get in touch</span>
+      <h1>Contact</h1>
+      <p>Open to gameplay programming roles and collaborations. The fastest way to reach me is email.</p>
+    </div>
+
+    <div class="contact-grid">
+      <ul class="contact-list">
+        <li>
+          <span class="label mono">Email</span>
+          <a href="mailto:your.email@example.com">your.email@example.com</a>
+        </li>
+        <li>
+          <span class="label mono">GitHub</span>
+          <a href="https://github.com/" target="_blank" rel="noopener">github.com/yourusername</a>
+        </li>
+        <li>
+          <span class="label mono">itch.io</span>
+          <a href="https://itch.io/" target="_blank" rel="noopener">yourusername.itch.io</a>
+        </li>
+        <li>
+          <span class="label mono">LinkedIn</span>
+          <a href="https://www.linkedin.com/" target="_blank" rel="noopener">linkedin.com/in/yourusername</a>
+        </li>
+      </ul>
+
+      <form class="contact-form" action="mailto:your.email@example.com" method="post" enctype="text/plain">
+        <div class="field">
+          <label for="name">Name</label>
+          <input type="text" id="name" name="name" required>
+        </div>
+        <div class="field">
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email" required>
+        </div>
+        <div class="field">
+          <label for="message">Message</label>
+          <textarea id="message" name="message" rows="5" required></textarea>
+        </div>
+        <button type="submit" class="btn btn--primary">send message</button>
+        <p class="form-note">Opens your email client — this is a static site with no backend. Swap in a service like Formspree if you'd rather handle it in-page.</p>
+      </form>
+    </div>
+
+    <footer class="site-footer">
+      © <span id="year"></span> Payton — built with HTML, CSS &amp; a lot of Blueprint debugging.
+    </footer>
+  </main>
+</div>
+
+<script src="js/main.js"></script>
+<script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+</body>
+</html>

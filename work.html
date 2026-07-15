@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Work — Payton</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<div class="topbar">
+  <span class="topbar__title">PAYTON<span style="color:var(--accent)">_</span>DEV</span>
+  <button class="topbar__toggle" aria-label="Toggle navigation" aria-expanded="false">☰</button>
+</div>
+
+<div class="shell">
+  <nav class="sidebar" aria-label="Primary">
+    <div class="sidebar__brand">
+      <p class="sidebar__brand-title">PAYTON<span style="color:var(--accent)">_</span>DEV</p>
+      <span class="sidebar__brand-sub">gameplay & systems programmer</span>
+    </div>
+    <ul class="sidebar__nav">
+      <li><a class="sidebar__link" href="index.html">home</a></li>
+      <li><a class="sidebar__link is-active" href="work.html">work</a></li>
+      <li><a class="sidebar__link" href="resume.html">resume</a></li>
+      <li><a class="sidebar__link" href="contact.html">contact</a></li>
+    </ul>
+    <div class="sidebar__footer">
+      <div class="sidebar__socials">
+        <a href="https://github.com/" target="_blank" rel="noopener">github</a>
+        <a href="https://itch.io/" target="_blank" rel="noopener">itch.io</a>
+        <a href="https://www.linkedin.com/" target="_blank" rel="noopener">linkedin</a>
+      </div>
+      <div class="sidebar__status">
+        <span class="sidebar__status-dot"></span>
+        currently building in UE5
+      </div>
+    </div>
+  </nav>
+
+  <main class="main">
+    <div class="page-header">
+      <span class="eyebrow">// project index</span>
+      <h1>Work</h1>
+      <p>Systems and tools built primarily in Unreal Engine 5 — Blueprints and C++, with a focus on gameplay logic that has to hold up under real edge cases.</p>
+    </div>
+
+    <div class="filter-row">
+      <button class="filter-btn is-active" data-filter="all">all</button>
+      <button class="filter-btn" data-filter="blueprints">blueprints</button>
+      <button class="filter-btn" data-filter="cpp">c++</button>
+      <button class="filter-btn" data-filter="systems">systems</button>
+      <button class="filter-btn" data-filter="rendering">rendering</button>
+    </div>
+
+    <div class="work-grid">
+
+      <div class="card-wrap">
+        <a class="card bracket-frame" href="#" data-tags="blueprints,systems">
+          <span class="bf-tl"></span><span class="bf-br"></span>
+          <div class="card__thumb">screenshot / clip</div>
+          <h3>Recipe &amp; Crafting System</h3>
+          <p>DataTable-driven crafting built on FRecipeIngredient and FRecipeRow structs. TryCraftRecipe handles validation; station-gating via an EStationType enum limits which recipes are available at which station; a cached craftable-recipe list keeps lookups cheap as the recipe book grows.</p>
+          <div class="card__meta">
+            <span class="tag">Blueprints</span>
+            <span class="tag">Data Tables</span>
+            <span class="tag">Systems</span>
+          </div>
+        </a>
+      </div>
+
+      <div class="card-wrap">
+        <a class="card bracket-frame" href="#" data-tags="cpp,systems">
+          <span class="bf-tl"></span><span class="bf-br"></span>
+          <div class="card__thumb">screenshot / clip</div>
+          <h3>Weight-Based Fish Scaling</h3>
+          <p>Caught weight drives mesh scale through a cube-root formula, clamped at both ends and remapped through a Curve Float asset so art direction can override the raw math. Non-uniform scaling adds girth independent of length.</p>
+          <div class="card__meta">
+            <span class="tag">C++</span>
+            <span class="tag">Systems</span>
+          </div>
+        </a>
+      </div>
+
+      <div class="card-wrap">
+        <a class="card bracket-frame" href="#" data-tags="blueprints,systems">
+          <span class="bf-tl"></span><span class="bf-br"></span>
+          <div class="card__thumb">screenshot / clip</div>
+          <h3>Shelf Placement &amp; Sorting</h3>
+          <p>Slot-based placement using TMap/TArray patterns. Diagnosed a slot-freeing bug caused by Remove() instead of clearing the value; refactored toward a TArray of structs carrying SlotTransform and OccupyingBox for clearer ownership.</p>
+          <div class="card__meta">
+            <span class="tag">Blueprints</span>
+            <span class="tag">Systems</span>
+          </div>
+        </a>
+      </div>
+
+      <div class="card-wrap">
+        <a class="card bracket-frame" href="#" data-tags="blueprints,systems">
+          <span class="bf-tl"></span><span class="bf-br"></span>
+          <div class="card__thumb">screenshot / clip</div>
+          <h3>XP Pickup Attraction</h3>
+          <p>Projectile Movement Component pickups that stay responsive through the attraction phase instead of freezing on ground impact — bShouldBounce kept true with low bounciness and high friction rather than calling StopSimulating().</p>
+          <div class="card__meta">
+            <span class="tag">Blueprints</span>
+            <span class="tag">Systems</span>
+          </div>
+        </a>
+      </div>
+
+      <div class="card-wrap">
+        <a class="card bracket-frame" href="#" data-tags="blueprints,rendering">
+          <span class="bf-tl"></span><span class="bf-br"></span>
+          <div class="card__thumb">screenshot / clip</div>
+          <h3>Outline Effect Component</h3>
+          <p>BP_OutlineComponent — a drop-in selectable-object highlight built from Custom Depth Stencil IDs and a post-process material, packaged so it can be added to any actor without extra setup.</p>
+          <div class="card__meta">
+            <span class="tag">Blueprints</span>
+            <span class="tag">Rendering</span>
+          </div>
+        </a>
+      </div>
+
+    </div>
+
+    <footer class="site-footer">
+      © <span id="year"></span> Payton — built with HTML, CSS &amp; a lot of Blueprint debugging.
+    </footer>
+  </main>
+</div>
+
+<script src="js/main.js"></script>
+<script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+</body>
+</html>

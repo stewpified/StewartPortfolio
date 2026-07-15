@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Payton — Game Developer Portfolio</title>
+<meta name="description" content="Game development portfolio — UE5 Blueprint & C++ systems work.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<div class="topbar">
+  <span class="topbar__title">PAYTON<span style="color:var(--accent)">_</span>DEV</span>
+  <button class="topbar__toggle" aria-label="Toggle navigation" aria-expanded="false">☰</button>
+</div>
+
+<div class="shell">
+  <nav class="sidebar" aria-label="Primary">
+    <div class="sidebar__brand">
+      <p class="sidebar__brand-title">PAYTON<span style="color:var(--accent)">_</span>DEV</p>
+      <span class="sidebar__brand-sub">gameplay & systems programmer</span>
+    </div>
+    <ul class="sidebar__nav">
+      <li><a class="sidebar__link is-active" href="index.html">home</a></li>
+      <li><a class="sidebar__link" href="work.html">work</a></li>
+      <li><a class="sidebar__link" href="resume.html">resume</a></li>
+      <li><a class="sidebar__link" href="contact.html">contact</a></li>
+    </ul>
+    <div class="sidebar__footer">
+      <div class="sidebar__socials">
+        <a href="https://github.com/" target="_blank" rel="noopener">github</a>
+        <a href="https://itch.io/" target="_blank" rel="noopener">itch.io</a>
+        <a href="https://www.linkedin.com/" target="_blank" rel="noopener">linkedin</a>
+      </div>
+      <div class="sidebar__status">
+        <span class="sidebar__status-dot"></span>
+        currently building in UE5
+      </div>
+    </div>
+  </nav>
+
+  <main class="main">
+
+    <section class="hero">
+      <div class="hero__copy">
+        <span class="eyebrow">// gameplay systems &amp; tools</span>
+        <h1>I build the systems<br>under the gameplay.</h1>
+        <p class="lede">
+          Unreal Engine 5 developer focused on crafting, inventory, and
+          interaction systems — the Blueprint and C++ architecture that
+          makes a game world feel like it holds together.
+        </p>
+        <div class="hero__tags">
+          <span class="tag">Unreal Engine 5</span>
+          <span class="tag">Blueprints</span>
+          <span class="tag">C++</span>
+          <span class="tag">Gameplay Systems</span>
+          <span class="tag">Tools &amp; UI</span>
+        </div>
+        <div class="hero__cta">
+          <a href="work.html" class="btn btn--primary">view work</a>
+          <a href="contact.html" class="btn btn--ghost">get in touch</a>
+        </div>
+      </div>
+
+      <div class="console bracket-frame always-on">
+        <span class="bf-tl"></span><span class="bf-br"></span>
+        <div class="console__label">
+          <span>BP_FishScaling.cpp</span>
+          <span>live snippet</span>
+        </div>
+        <div class="console__line"><span class="c">// scale a fish mesh from its caught weight</span></div>
+        <div class="console__line"><span class="k">float</span> Scale = <span class="k">FMath::Pow</span>(</div>
+        <div class="console__line">  Weight / ReferenceWeight, <span class="v">1.f / 3.f</span></div>
+        <div class="console__line">) * ReferenceScale;</div>
+        <div class="console__line"><span class="c">// clamped + curve-mapped for art direction</span></div>
+      </div>
+    </section>
+
+    <div class="section-title">
+      <h2>Featured Work</h2>
+      <a href="work.html">view all →</a>
+    </div>
+
+    <div class="work-grid">
+      <div class="card-wrap">
+        <a class="card bracket-frame" href="work.html">
+          <span class="bf-tl"></span><span class="bf-br"></span>
+          <div class="card__thumb">screenshot / clip</div>
+          <h3>Recipe &amp; Crafting System</h3>
+          <p>DataTable-driven crafting built on FRecipeIngredient / FRecipeRow structs, with station-gated recipes and cached lookups for performance.</p>
+          <div class="card__meta">
+            <span class="tag">Blueprints</span>
+            <span class="tag">Data Tables</span>
+            <span class="tag">Systems</span>
+          </div>
+        </a>
+      </div>
+
+      <div class="card-wrap">
+        <a class="card bracket-frame" href="work.html">
+          <span class="bf-tl"></span><span class="bf-br"></span>
+          <div class="card__thumb">screenshot / clip</div>
+          <h3>Weight-Based Fish Scaling</h3>
+          <p>Cube-root scale formula mapping caught weight to mesh size, with curve assets for art-directed falloff and non-uniform girth scaling.</p>
+          <div class="card__meta">
+            <span class="tag">C++</span>
+            <span class="tag">Math</span>
+            <span class="tag">Gameplay</span>
+          </div>
+        </a>
+      </div>
+
+      <div class="card-wrap">
+        <a class="card bracket-frame" href="work.html">
+          <span class="bf-tl"></span><span class="bf-br"></span>
+          <div class="card__thumb">screenshot / clip</div>
+          <h3>Shelf Placement &amp; Sorting</h3>
+          <p>Slot-based placement system using TMap/TArray patterns, refactored to structs carrying transform and occupancy data.</p>
+          <div class="card__meta">
+            <span class="tag">Blueprints</span>
+            <span class="tag">Systems</span>
+          </div>
+        </a>
+      </div>
+
+      <div class="card-wrap">
+        <a class="card bracket-frame" href="work.html">
+          <span class="bf-tl"></span><span class="bf-br"></span>
+          <div class="card__thumb">screenshot / clip</div>
+          <h3>Outline Effect Component</h3>
+          <p>Reusable BP_OutlineComponent using custom depth stencils and a post-process material for selectable-object highlighting.</p>
+          <div class="card__meta">
+            <span class="tag">Blueprints</span>
+            <span class="tag">Rendering</span>
+          </div>
+        </a>
+      </div>
+    </div>
+
+    <footer class="site-footer">
+      © <span id="year"></span> Payton — built with HTML, CSS &amp; a lot of Blueprint debugging.
+    </footer>
+  </main>
+</div>
+
+<script src="js/main.js"></script>
+<script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+</body>
+</html>
