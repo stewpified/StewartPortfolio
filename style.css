@@ -5,15 +5,15 @@
    secondary emphasis.
    ========================================================= */
 :root {
-  --bg: #14161a;
-  --panel: #1b1e24;
-  --panel-alt: #21242b;
-  --border: #2a2e37;
-  --text: #e7e4dd;
-  --text-dim: #8b9099;
-  --text-faint: #5b606b;
-  --accent: #6fcf97;
-  --accent-warm: #f2a65a;
+  --bg: #ffffff;
+  --panel: #f6f6f6;
+  --panel-alt: #ececec;
+  --border: #dcdcdc;
+  --text: #111111;
+  --text-dim: #4a4a4a;
+  --text-faint: #8a8a8a;
+  --accent: #1f9d55;
+  --accent-warm: #c9720f;
 
   --font-display: 'Space Grotesk', 'Segoe UI', sans-serif;
   --font-body: 'Inter', 'Segoe UI', sans-serif;
