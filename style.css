@@ -337,6 +337,11 @@ p { margin: 0 0 1em 0; color: var(--text-dim); }
   .hero { grid-template-columns: 1fr; }
 }
 
+.hero--single {
+  grid-template-columns: 1fr;
+  max-width: 640px;
+}
+
 .hero__copy h1 {
   font-size: clamp(2.2rem, 5vw, 3.2rem);
   line-height: 1.08;
