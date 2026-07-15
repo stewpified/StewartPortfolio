@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Outline Effect Component — Case Study — Payton</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<div class="topbar">
+  <span class="topbar__title">PAYTON<span style="color:var(--accent)">_</span>DEV</span>
+  <button class="topbar__toggle" aria-label="Toggle navigation" aria-expanded="false">☰</button>
+</div>
+
+<div class="shell">
+  <nav class="sidebar" aria-label="Primary">
+    <div class="sidebar__brand">
+      <p class="sidebar__brand-title">PAYTON<span style="color:var(--accent)">_</span>DEV</p>
+      <span class="sidebar__brand-sub">gameplay & systems programmer</span>
+    </div>
+    <ul class="sidebar__nav">
+      <li><a class="sidebar__link" href="index.html"><span>home</span></a></li>
+      <li><a class="sidebar__link is-active" href="work.html"><span>work</span></a></li>
+      <li><a class="sidebar__link" href="resume.html"><span>resume</span></a></li>
+      <li><a class="sidebar__link" href="contact.html"><span>contact</span></a></li>
+    </ul>
+    <div class="sidebar__footer">
+      <div class="sidebar__socials">
+        <a href="https://github.com/" target="_blank" rel="noopener">github</a>
+        <a href="https://itch.io/" target="_blank" rel="noopener">itch.io</a>
+        <a href="https://www.linkedin.com/" target="_blank" rel="noopener">linkedin</a>
+      </div>
+      <div class="sidebar__status">
+        <span class="sidebar__status-dot"></span>
+        currently building in UE5
+      </div>
+    </div>
+  </nav>
+
+  <main class="main">
+    <a class="back-link" href="work.html">back to work</a>
+
+    <div class="page-header">
+      <span class="eyebrow">// case study</span>
+      <h1>Outline Effect Component</h1>
+      <p>A drop-in component that gives any actor a selectable-object outline, without per-actor setup.</p>
+    </div>
+
+    <div class="case-meta-row">
+          <span class="tag">Blueprints</span>
+    </div>
+
+    <div class="case-hero-thumb">screenshot / clip</div>
+
+    <div class="content-section">
+      <h2>The Problem</h2>
+      <p>Highlighting interactable or selected objects needed to work consistently across very different actor types — props, NPCs, pickups — without duplicating outline logic on each one.</p>
+    </div>
+
+    <div class="content-section">
+      <h2>Approach</h2>
+      <ul>
+        <li>Built <span class="mono">BP_OutlineComponent</span> around Custom Depth Stencil IDs, assigning each highlighted actor a stencil value.</li>
+        <li>Paired it with a post-process material that reads the stencil buffer and draws an outline along the edges of any actor carrying a matching ID.</li>
+        <li>Packaged the whole thing as a single component, so enabling the effect on a new actor is just "add the component, set a stencil ID" — no per-actor material or render logic.</li>
+      </ul>
+    </div>
+
+    <div class="content-section">
+      <h2>Breakdown</h2>
+      <div class="code-block mono"><span class="c">// usage</span>
+<span class="v">Add</span> BP_OutlineComponent <span class="v">to</span> Actor
+<span class="v">Set</span> StencilID = <span class="v">n</span>
+
+<span class="c">// under the hood</span>
+Actor.CustomDepthStencilValue = StencilID
+PostProcessMaterial <span class="v">reads</span> stencil buffer → draws edge outline</div>
+    </div>
+
+    <div class="content-section">
+      <h2>Outcome</h2>
+      <p>Any actor can get a consistent, art-directable highlight by adding one component — no bespoke outline setup needed per actor type.</p>
+    </div>
+
+    <div class="case-nav">
+      <a href="case-study-xp-pickup.html">‹ XP Pickup Attraction</a>
+      <a href="case-study-recipe-crafting.html">Recipe & Crafting System ›</a>
+    </div>
+
+    <footer class="site-footer">
+      © <span id="year"></span> Payton — built with HTML, CSS &amp; a lot of Blueprint debugging.
+    </footer>
+  </main>
+</div>
+
+<script src="js/main.js"></script>
+<script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+</body>
+</html>

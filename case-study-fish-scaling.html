@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Weight-Based Fish Scaling — Case Study — Payton</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<div class="topbar">
+  <span class="topbar__title">PAYTON<span style="color:var(--accent)">_</span>DEV</span>
+  <button class="topbar__toggle" aria-label="Toggle navigation" aria-expanded="false">☰</button>
+</div>
+
+<div class="shell">
+  <nav class="sidebar" aria-label="Primary">
+    <div class="sidebar__brand">
+      <p class="sidebar__brand-title">PAYTON<span style="color:var(--accent)">_</span>DEV</p>
+      <span class="sidebar__brand-sub">gameplay & systems programmer</span>
+    </div>
+    <ul class="sidebar__nav">
+      <li><a class="sidebar__link" href="index.html"><span>home</span></a></li>
+      <li><a class="sidebar__link is-active" href="work.html"><span>work</span></a></li>
+      <li><a class="sidebar__link" href="resume.html"><span>resume</span></a></li>
+      <li><a class="sidebar__link" href="contact.html"><span>contact</span></a></li>
+    </ul>
+    <div class="sidebar__footer">
+      <div class="sidebar__socials">
+        <a href="https://github.com/" target="_blank" rel="noopener">github</a>
+        <a href="https://itch.io/" target="_blank" rel="noopener">itch.io</a>
+        <a href="https://www.linkedin.com/" target="_blank" rel="noopener">linkedin</a>
+      </div>
+      <div class="sidebar__status">
+        <span class="sidebar__status-dot"></span>
+        currently building in UE5
+      </div>
+    </div>
+  </nav>
+
+  <main class="main">
+    <a class="back-link" href="work.html">back to work</a>
+
+    <div class="page-header">
+      <span class="eyebrow">// case study</span>
+      <h1>Weight-Based Fish Scaling</h1>
+      <p>A formula-driven system that scales a caught fish's mesh to match its rolled weight, instead of relying on a fixed set of pre-scaled meshes.</p>
+    </div>
+
+    <div class="case-meta-row">
+          <span class="tag">Blueprints</span>
+          <span class="tag">Systems</span>
+    </div>
+
+    <div class="case-hero-thumb">screenshot / clip</div>
+
+    <div class="content-section">
+      <h2>The Problem</h2>
+      <p>A handful of fixed mesh sizes per fish species looks repetitive and breaks the illusion that weight is meaningful — but scaling linearly with weight makes big fish look absurdly oversized, since volume grows with the cube of linear size, not weight directly.</p>
+    </div>
+
+    <div class="content-section">
+      <h2>Approach</h2>
+      <ul>
+        <li>Used a cube-root relationship between weight and scale, since weight scales roughly with volume (length³) rather than length — this keeps big fish looking proportionally right instead of ballooning.</li>
+        <li>Clamped the resulting scale at both ends so extreme weight rolls can't produce a mesh that's too small to read or large enough to look glitchy.</li>
+        <li>Ran the raw formula output through a Curve Float asset before applying it, so art direction can hand-tune the falloff without touching the underlying math.</li>
+        <li>Applied non-uniform scaling so girth can be nudged independently of overall length, avoiding the "stretched balloon" look on heavier fish.</li>
+      </ul>
+    </div>
+
+    <div class="content-section">
+      <h2>Breakdown</h2>
+      <div class="code-block mono"><span class="c">// Blueprint node flow</span>
+RawScale = Power( Weight / ReferenceWeight, <span class="v">1 / 3</span> )
+FinalScale = Clamp( RawScale, MinScale, MaxScale )
+FinalScale = CurveFloat.GetValue( FinalScale )  <span class="c">// art-directed remap</span>
+
+<span class="v">Apply</span> FinalScale <span class="v">to</span> mesh (non-uniform for girth)</div>
+    </div>
+
+    <div class="content-section">
+      <h2>Outcome</h2>
+      <p>Fish read as believably sized across the whole weight range, and artists can reshape the size curve directly in a Curve Float asset without needing a single line of new logic.</p>
+    </div>
+
+    <div class="case-nav">
+      <a href="case-study-recipe-crafting.html">‹ Recipe & Crafting System</a>
+      <a href="case-study-shelf-system.html">Shelf Placement & Sorting ›</a>
+    </div>
+
+    <footer class="site-footer">
+      © <span id="year"></span> Payton — built with HTML, CSS &amp; a lot of Blueprint debugging.
+    </footer>
+  </main>
+</div>
+
+<script src="js/main.js"></script>
+<script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+</body>
+</html>

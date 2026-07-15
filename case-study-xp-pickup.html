@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>XP Pickup Attraction — Case Study — Payton</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<div class="topbar">
+  <span class="topbar__title">PAYTON<span style="color:var(--accent)">_</span>DEV</span>
+  <button class="topbar__toggle" aria-label="Toggle navigation" aria-expanded="false">☰</button>
+</div>
+
+<div class="shell">
+  <nav class="sidebar" aria-label="Primary">
+    <div class="sidebar__brand">
+      <p class="sidebar__brand-title">PAYTON<span style="color:var(--accent)">_</span>DEV</p>
+      <span class="sidebar__brand-sub">gameplay & systems programmer</span>
+    </div>
+    <ul class="sidebar__nav">
+      <li><a class="sidebar__link" href="index.html"><span>home</span></a></li>
+      <li><a class="sidebar__link is-active" href="work.html"><span>work</span></a></li>
+      <li><a class="sidebar__link" href="resume.html"><span>resume</span></a></li>
+      <li><a class="sidebar__link" href="contact.html"><span>contact</span></a></li>
+    </ul>
+    <div class="sidebar__footer">
+      <div class="sidebar__socials">
+        <a href="https://github.com/" target="_blank" rel="noopener">github</a>
+        <a href="https://itch.io/" target="_blank" rel="noopener">itch.io</a>
+        <a href="https://www.linkedin.com/" target="_blank" rel="noopener">linkedin</a>
+      </div>
+      <div class="sidebar__status">
+        <span class="sidebar__status-dot"></span>
+        currently building in UE5
+      </div>
+    </div>
+  </nav>
+
+  <main class="main">
+    <a class="back-link" href="work.html">back to work</a>
+
+    <div class="page-header">
+      <span class="eyebrow">// case study</span>
+      <h1>XP Pickup Attraction</h1>
+      <p>Physics-driven XP pickups that settle naturally on the ground but stay responsive enough to snap toward the player once they're in range.</p>
+    </div>
+
+    <div class="case-meta-row">
+          <span class="tag">Blueprints</span>
+          <span class="tag">Systems</span>
+    </div>
+
+    <div class="case-hero-thumb">screenshot / clip</div>
+
+    <div class="content-section">
+      <h2>The Problem</h2>
+      <p>Pickups used a Projectile Movement Component, and stopping simulation on ground impact (to keep them from sliding forever) also killed the physics response needed for the later "fly toward the player" attraction behavior.</p>
+    </div>
+
+    <div class="content-section">
+      <h2>Approach</h2>
+      <ul>
+        <li>Kept <span class="mono">bShouldBounce</span> set to true instead of calling a hard stop on ground impact.</li>
+        <li>Paired that with low bounciness and high friction, so pickups still settle quickly and don't visibly bounce around, without disabling simulation.</li>
+        <li>This kept the Projectile Movement Component "live," so redirecting velocity toward the player once the attraction radius triggers still works cleanly.</li>
+      </ul>
+    </div>
+
+    <div class="content-section">
+      <h2>Breakdown</h2>
+      <div class="code-block mono"><span class="c">// what didn't work</span>
+<span class="v">On ground impact</span> → StopSimulating()   <span class="c">// kills physics response entirely</span>
+
+<span class="c">// what worked instead</span>
+bShouldBounce = <span class="k">true</span>
+Bounciness = <span class="v">low</span>
+Friction = <span class="v">high</span>
+<span class="c">// pickup settles fast, but stays physically responsive</span></div>
+    </div>
+
+    <div class="content-section">
+      <h2>Outcome</h2>
+      <p>Pickups feel alive at rest and still snap smoothly toward the player when the attraction radius triggers, without needing a separate movement-mode swap.</p>
+    </div>
+
+    <div class="case-nav">
+      <a href="case-study-shelf-system.html">‹ Shelf Placement & Sorting</a>
+      <a href="case-study-outline-effect.html">Outline Effect Component ›</a>
+    </div>
+
+    <footer class="site-footer">
+      © <span id="year"></span> Payton — built with HTML, CSS &amp; a lot of Blueprint debugging.
+    </footer>
+  </main>
+</div>
+
+<script src="js/main.js"></script>
+<script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+</body>
+</html>

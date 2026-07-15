@@ -527,6 +527,127 @@ p { margin: 0 0 1em 0; color: var(--text-dim); }
   gap: 6px;
 }
 
+.card__cta {
+  display: block;
+  margin-top: 16px;
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--accent-warm);
+}
+
+.card__cta::after { content: ' →'; }
+
+/* =========================================================
+   Case study pages
+   ========================================================= */
+.back-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--text-dim);
+  margin-bottom: 28px;
+}
+
+.back-link::before { content: '‹'; }
+.back-link:hover { color: var(--accent-warm); }
+
+.case-hero-thumb {
+  height: 320px;
+  background: var(--panel-alt);
+  border: 1px dashed var(--border-faint);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--text-faint);
+  margin-bottom: 40px;
+}
+
+.content-section { margin-bottom: 44px; }
+
+.content-section h2 {
+  font-size: 0.92rem;
+  font-family: var(--font-mono);
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  color: var(--accent);
+  margin-bottom: 18px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid var(--border-faint);
+}
+
+.content-section ul {
+  margin: 0;
+  padding-left: 0;
+  list-style: none;
+}
+
+.content-section ul li {
+  position: relative;
+  padding-left: 22px;
+  margin-bottom: 14px;
+  color: var(--text-dim);
+}
+
+.content-section ul li::before {
+  content: '›';
+  position: absolute;
+  left: 0;
+  color: var(--accent-warm);
+  font-family: var(--font-mono);
+}
+
+.code-block {
+  background: var(--panel-alt);
+  border: 1px solid var(--border);
+  padding: 18px 20px;
+  font-family: var(--font-mono);
+  font-size: 0.82rem;
+  line-height: 1.9;
+  overflow-x: auto;
+  margin: 8px 0 32px;
+  white-space: pre-wrap;
+}
+
+.code-block .c { color: var(--text-faint); }
+.code-block .k { color: var(--accent-warm); }
+.code-block .v { color: var(--accent); }
+
+.case-meta-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 36px;
+}
+
+.case-nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 60px;
+  padding-top: 24px;
+  border-top: 1px solid var(--border);
+}
+
+.case-nav a {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--text-dim);
+}
+
+.case-nav a:hover { color: var(--accent-warm); }
+
 /* =========================================================
    Embedded Blueprint (blueprintue.com) — responsive wrapper
    ========================================================= */

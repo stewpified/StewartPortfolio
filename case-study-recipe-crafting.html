@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Recipe &amp; Crafting System — Case Study — Payton</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<div class="topbar">
+  <span class="topbar__title">PAYTON<span style="color:var(--accent)">_</span>DEV</span>
+  <button class="topbar__toggle" aria-label="Toggle navigation" aria-expanded="false">☰</button>
+</div>
+
+<div class="shell">
+  <nav class="sidebar" aria-label="Primary">
+    <div class="sidebar__brand">
+      <p class="sidebar__brand-title">PAYTON<span style="color:var(--accent)">_</span>DEV</p>
+      <span class="sidebar__brand-sub">gameplay & systems programmer</span>
+    </div>
+    <ul class="sidebar__nav">
+      <li><a class="sidebar__link" href="index.html"><span>home</span></a></li>
+      <li><a class="sidebar__link is-active" href="work.html"><span>work</span></a></li>
+      <li><a class="sidebar__link" href="resume.html"><span>resume</span></a></li>
+      <li><a class="sidebar__link" href="contact.html"><span>contact</span></a></li>
+    </ul>
+    <div class="sidebar__footer">
+      <div class="sidebar__socials">
+        <a href="https://github.com/" target="_blank" rel="noopener">github</a>
+        <a href="https://itch.io/" target="_blank" rel="noopener">itch.io</a>
+        <a href="https://www.linkedin.com/" target="_blank" rel="noopener">linkedin</a>
+      </div>
+      <div class="sidebar__status">
+        <span class="sidebar__status-dot"></span>
+        currently building in UE5
+      </div>
+    </div>
+  </nav>
+
+  <main class="main">
+    <a class="back-link" href="work.html">back to work</a>
+
+    <div class="page-header">
+      <span class="eyebrow">// case study</span>
+      <h1>Recipe &amp; Crafting System</h1>
+      <p>A DataTable-driven crafting system that lets new recipes be added by editing rows, not Blueprint graphs.</p>
+    </div>
+
+    <div class="case-meta-row">
+          <span class="tag">Blueprints</span>
+          <span class="tag">Data Tables</span>
+          <span class="tag">Systems</span>
+    </div>
+
+    <div class="case-hero-thumb">screenshot / clip</div>
+
+    <div class="content-section">
+      <h2>The Problem</h2>
+      <p>Hardcoding each recipe directly into Blueprint logic doesn't scale — every new recipe means editing graph logic by hand, and there's no clean way to validate a player's inventory against a recipe's ingredient list without repeating that logic per recipe.</p>
+    </div>
+
+    <div class="content-section">
+      <h2>Approach</h2>
+      <ul>
+        <li>Defined <span class="mono">FRecipeIngredient</span> and <span class="mono">FRecipeRow</span> structs so each recipe becomes a single DataTable row: an ingredient list (item ID + quantity), an output item, and a required station.</li>
+        <li>Built <span class="mono">TryCraftRecipe</span> as a single validation function that checks the player's inventory against a recipe's ingredient list, handling multiple ingredients and partial stacks.</li>
+        <li>Added station-gating through an <span class="mono">EStationType</span> enum, so a recipe only surfaces at the station it's meant for (a soup recipe won't show up at a workbench).</li>
+        <li>Cached the list of currently-craftable recipes and only recalculated it when the inventory actually changed, instead of re-validating every recipe on every UI refresh.</li>
+      </ul>
+    </div>
+
+    <div class="content-section">
+      <h2>Breakdown</h2>
+      <div class="code-block mono"><span class="c">// DataTable row shape (Blueprint structs)</span>
+<span class="k">Struct</span> FRecipeIngredient
+  ItemID
+  Quantity
+
+<span class="k">Struct</span> FRecipeRow
+  DisplayName
+  Ingredients        <span class="c">[array of FRecipeIngredient]</span>
+  OutputItem
+  RequiredStation     <span class="c">// EStationType</span>
+
+<span class="c">// crafting flow</span>
+TryCraftRecipe(Recipe) →
+  <span class="v">for each</span> Ingredient <span class="v">in</span> Recipe.Ingredients:
+    <span class="v">check</span> Inventory has enough Quantity
+  <span class="v">if</span> all pass → consume ingredients, grant OutputItem</div>
+    </div>
+
+    <div class="content-section">
+      <h2>Outcome</h2>
+      <p>New recipes can be added purely through DataTable rows, with zero Blueprint graph edits. The cached craftable-recipe list keeps the crafting UI responsive even as the recipe book grows.</p>
+    </div>
+
+    <div class="case-nav">
+      <a href="case-study-outline-effect.html">‹ Outline Effect Component</a>
+      <a href="case-study-fish-scaling.html">Weight-Based Fish Scaling ›</a>
+    </div>
+
+    <footer class="site-footer">
+      © <span id="year"></span> Payton — built with HTML, CSS &amp; a lot of Blueprint debugging.
+    </footer>
+  </main>
+</div>
+
+<script src="js/main.js"></script>
+<script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+</body>
+</html>
