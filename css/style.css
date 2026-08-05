@@ -620,6 +620,32 @@ p { margin: 0 0 1em 0; color: var(--text-dim); }
   margin: 36px 0;
 }
 
+.case-media {
+  width: 100%;
+  border: 1px solid var(--border);
+  background: var(--panel-alt);
+  margin: 36px 0;
+  overflow: hidden;
+}
+
+.case-media img {
+  display: block;
+  width: 100%;
+  height: auto;
+  max-height: 480px;
+  object-fit: cover;
+}
+
+.case-media figcaption {
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--text-faint);
+  padding: 10px 14px;
+  border-top: 1px solid var(--border);
+}
+
 .case-body p {
   font-size: 0.96rem;
   line-height: 1.8;
