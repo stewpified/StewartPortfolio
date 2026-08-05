@@ -55,12 +55,18 @@
           <span class="tag">Systems</span>
     </div>
 
-    <div class="case-media-slot">image / video</div>
+    <figure class="case-media">
+      <img src="assets/hands-on-cooking/cook-food.gif" alt="Cooking a dish on the stovetop using the hands-on interaction system">
+      <figcaption>in-editor capture — cooking a dish on the stovetop</figcaption>
+    </figure>
 
     <div class="case-body">
       <p>In order to create a food processing and cooking system that felt hands-on and more real, I created an interaction and inventory system where the player holds items and tools in their hands only, skipping out on a standard inventory based on menus. Instead, the player must use their hands and move food, tools, etc. in real space.</p>
 
-      <div class="case-media-slot">image / video</div>
+      <figure class="case-media">
+        <img src="assets/hands-on-cooking/new-food.gif" alt="Picking up and holding a food item directly in the player's hands">
+        <figcaption>in-editor capture — holding a food item in real space</figcaption>
+      </figure>
 
       <p>The first foundational part of making this system work was getting the input actions system running and working alongside my player character blueprint so the player could interact with any object and the correct actions would pass through the actor that is interacted with. This was done through creating a blueprint interface for interactions as well as tool interactions, so if an object should react to a knife, but not your hands, it will respond accordingly.</p>
 
@@ -68,7 +74,10 @@
 
       <p>The next task at hand is using data tables to create recipes and building each blueprint (like a stovetop or a rice cooker) so the player can actually cook and create dishes.</p>
 
-      <div class="case-media-slot">image / video</div>
+      <figure class="case-media">
+        <img src="assets/hands-on-cooking/oven.gif" alt="Oven appliance blueprint used for cooking recipes at a station">
+        <figcaption>in-editor capture — the oven cooking station blueprint</figcaption>
+      </figure>
     </div>
 
     <div class="case-nav">
