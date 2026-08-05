@@ -306,8 +306,41 @@ p { margin: 0 0 1em 0; color: var(--text-dim); }
   margin-bottom: 48px;
 }
 
+.page-header__top {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 24px;
+  flex-wrap: wrap;
+}
+
+.page-header__top h1 { margin-bottom: 0; }
+.page-header__top .resume-download { margin-top: 0; flex-shrink: 0; }
+
 .page-header h1 {
   font-size: clamp(1.9rem, 4vw, 2.4rem);
+}
+
+.bullet-list {
+  margin: 0 0 12px 0;
+  padding-left: 0;
+  list-style: none;
+}
+
+.bullet-list li {
+  position: relative;
+  padding-left: 20px;
+  margin-bottom: 6px;
+  color: var(--text-dim);
+  font-size: 0.9rem;
+}
+
+.bullet-list li::before {
+  content: '›';
+  position: absolute;
+  left: 0;
+  color: var(--accent-warm);
+  font-family: var(--font-mono);
 }
 
 /* =========================================================
