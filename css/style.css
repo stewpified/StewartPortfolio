@@ -572,6 +572,27 @@ p { margin: 0 0 1em 0; color: var(--text-dim); }
   margin-bottom: 40px;
 }
 
+.case-media-slot {
+  height: 240px;
+  background: var(--panel-alt);
+  border: 1px dashed var(--border-faint);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--text-faint);
+  margin: 36px 0;
+}
+
+.case-body p {
+  font-size: 0.96rem;
+  line-height: 1.8;
+  color: var(--text-dim);
+}
+
 .content-section { margin-bottom: 44px; }
 
 .content-section h2 {

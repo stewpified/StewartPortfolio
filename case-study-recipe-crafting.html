@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Recipe &amp; Crafting System — Case Study — Payton</title>
+<title>Hands-On Interaction &amp; Cooking System — Case Study — Payton</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="css/style.css">
@@ -45,56 +45,30 @@
 
     <div class="page-header">
       <span class="eyebrow">// case study</span>
-      <h1>Recipe &amp; Crafting System</h1>
-      <p>A DataTable-driven crafting system that lets new recipes be added by editing rows, not Blueprint graphs.</p>
+      <h1>Hands-On Interaction &amp; Cooking System</h1>
+      <p>A hands-only interaction and inventory system built for a food-processing and cooking game — no menus, just picking up and moving food, tools, and dishes in real space.</p>
     </div>
 
     <div class="case-meta-row">
           <span class="tag">Blueprints</span>
-          <span class="tag">Data Tables</span>
+          <span class="tag">Interfaces</span>
           <span class="tag">Systems</span>
     </div>
 
-    <div class="case-hero-thumb">screenshot / clip</div>
+    <div class="case-media-slot">image / video</div>
 
-    <div class="content-section">
-      <h2>The Problem</h2>
-      <p>Hardcoding each recipe directly into Blueprint logic doesn't scale — every new recipe means editing graph logic by hand, and there's no clean way to validate a player's inventory against a recipe's ingredient list without repeating that logic per recipe.</p>
-    </div>
+    <div class="case-body">
+      <p>In order to create a food processing and cooking system that felt hands-on and more real, I created an interaction and inventory system where the player holds items and tools in their hands only, skipping out on a standard inventory based on menus. Instead, the player must use their hands and move food, tools, etc. in real space.</p>
 
-    <div class="content-section">
-      <h2>Approach</h2>
-      <ul>
-        <li>Defined <span class="mono">FRecipeIngredient</span> and <span class="mono">FRecipeRow</span> structs so each recipe becomes a single DataTable row: an ingredient list (item ID + quantity), an output item, and a required station.</li>
-        <li>Built <span class="mono">TryCraftRecipe</span> as a single validation function that checks the player's inventory against a recipe's ingredient list, handling multiple ingredients and partial stacks.</li>
-        <li>Added station-gating through an <span class="mono">EStationType</span> enum, so a recipe only surfaces at the station it's meant for (a soup recipe won't show up at a workbench).</li>
-        <li>Cached the list of currently-craftable recipes and only recalculated it when the inventory actually changed, instead of re-validating every recipe on every UI refresh.</li>
-      </ul>
-    </div>
+      <div class="case-media-slot">image / video</div>
 
-    <div class="content-section">
-      <h2>Breakdown</h2>
-      <div class="code-block mono"><span class="c">// DataTable row shape (Blueprint structs)</span>
-<span class="k">Struct</span> FRecipeIngredient
-  ItemID
-  Quantity
+      <p>The first foundational part of making this system work was getting the input actions system running and working alongside my player character blueprint so the player could interact with any object and the correct actions would pass through the actor that is interacted with. This was done through creating a blueprint interface for interactions as well as tool interactions, so if an object should react to a knife, but not your hands, it will respond accordingly.</p>
 
-<span class="k">Struct</span> FRecipeRow
-  DisplayName
-  Ingredients        <span class="c">[array of FRecipeIngredient]</span>
-  OutputItem
-  RequiredStation     <span class="c">// EStationType</span>
+      <div class="case-media-slot">image / video</div>
 
-<span class="c">// crafting flow</span>
-TryCraftRecipe(Recipe) →
-  <span class="v">for each</span> Ingredient <span class="v">in</span> Recipe.Ingredients:
-    <span class="v">check</span> Inventory has enough Quantity
-  <span class="v">if</span> all pass → consume ingredients, grant OutputItem</div>
-    </div>
+      <p>The next task at hand is using data tables to create recipes and building each blueprint (like a stovetop or a rice cooker) so the player can actually cook and create dishes.</p>
 
-    <div class="content-section">
-      <h2>Outcome</h2>
-      <p>New recipes can be added purely through DataTable rows, with zero Blueprint graph edits. The cached craftable-recipe list keeps the crafting UI responsive even as the recipe book grows.</p>
+      <div class="case-media-slot">image / video</div>
     </div>
 
     <div class="case-nav">
