@@ -64,11 +64,12 @@
     <div class="case-body">
       <p>I began this project with the goal of designing a cooking and prep system for a game idea I've dubbed "Bento!". The goal was to create a system in which the player could cook, prep, and pack food for customers.</p>
 
-      <div class="case-media-slot">image / video</div>
-
       <p>The first challenge for creating this system was getting interactions down. I've designed interactions before, but I hadn't done it in an optimal manner, and I've been learning a lot from other projects. For Bento! I was largely inspired by the game Fruitbus and how it handles the player's inventory. That game has the player physically hold items and tools with their hands rather than a hotbar or a menu-based inventory (though it does have one for the backpack). I found that idea rather charming, so I developed my own take on the system where the player can hold items in each hand and use them accordingly.</p>
 
-      <div class="case-media-slot">image / video</div>
+      <figure class="case-media">
+        <img src="assets/hands-on-cooking/interaction-highlight.gif" alt="Highlighting an interactable object when it's looked at">
+        <figcaption>in-editor capture — interaction highlight on a lookable object</figcaption>
+      </figure>
 
       <p>The next step was creating tools that passed their interactions to other actors, so I built a Blueprint Interface system that included Tool Interactions. If the player is holding a tool like a knife or a bento box, the system checks to see if they're looking at something interactable when they activate an interaction. If the interacted actor implements the <span class="mono">BPI_ToolInteraction</span> interface, it sends a message containing the tool type, and the interacted actor responds accordingly. This is done using an enumerator that contains each tool type and switches depending on what is passed through.</p>
 
@@ -86,15 +87,19 @@
 
       <p>This system was developed alongside the stove and the oven that I built. The stovetop and oven both have box collisions that detect and store the food items placed in their bounds, and when activated — either by turning the stove on or closing the oven door — the food is cooked. This was a catalyst for me to start using the hit component from the line traces to make different things happen. For a long time I was simply having an actor respond to any interaction the same way, but building this oven taught me that I can make an actor respond to interactions differently depending on what part of the actor is hit by that interaction.</p>
 
-      <div class="case-media-slot">image / video</div>
-
       <p>Next up was creating a place where the player could store cooked food. It took me a while to figure it out, but I eventually landed on creating an actor called <span class="mono">BP_SteamTableSlot</span> that grabs information from the held item and checks whether it can take it when the player interacts with it. If the slot detects a food actor, it checks whether the actor is cooked and, if so, takes it from the player. The food in question fills the slot and is now ready to be packed up.</p>
 
-      <div class="case-media-slot">image / video</div>
+      <figure class="case-media">
+        <img src="assets/hands-on-cooking/steam-table.gif" alt="Cooked food filling a steam table slot">
+        <figcaption>in-editor capture — BP_SteamTableSlot receiving cooked food</figcaption>
+      </figure>
 
       <p>The final task was the bento box itself. This system was mostly derived from the same logic as the steam table slot, except it parses out whether the food is an entrée or a side dish. Depending on that information, it fills a different slot inside the box.</p>
 
-      <div class="case-media-slot">image / video</div>
+      <figure class="case-media">
+        <img src="assets/hands-on-cooking/bento-box.gif" alt="Packing an entrée and side dish into the bento box">
+        <figcaption>in-editor capture — packing the bento box</figcaption>
+      </figure>
 
       <p>With that being said, this case study is complete, but it isn't super refined. I'll soon be updating this as I refine the project more and maybe turn it into an actual game with more features. The next steps include, but aren't limited to, customers, orders, more robust cooking (like mixing and marinades), menu design, and more.</p>
     </div>
