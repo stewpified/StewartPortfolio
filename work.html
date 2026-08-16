@@ -31,7 +31,7 @@
       <div class="sidebar__socials">
         <a href="https://github.com/" target="_blank" rel="noopener">github</a>
         <a href="https://itch.io/" target="_blank" rel="noopener">itch.io</a>
-        <a href="https://www.linkedin.com/" target="_blank" rel="noopener">linkedin</a>
+        <a href="https://www.linkedin.com/in/payton-stewart-088935293/" target="_blank" rel="noopener">linkedin</a>
       </div>
       <div class="sidebar__status">
         <span class="sidebar__status-dot"></span>
@@ -47,13 +47,7 @@
       <p>Systems and tools built primarily in Unreal Engine 5 — Blueprints, with a focus on gameplay logic that has to hold up under real edge cases.</p>
     </div>
 
-    <div class="filter-row">
-      <button class="filter-btn is-active" data-filter="all">all</button>
-      <button class="filter-btn" data-filter="blueprints">blueprints</button>
-      <button class="filter-btn" data-filter="systems">systems</button>
-    </div>
-
-    <div class="work-grid">
+    <div class="work-grid work-grid--single">
 
       <div class="card-wrap">
         <a class="card bracket-frame" href="case-study-recipe-crafting.html" data-tags="blueprints,systems">
@@ -65,61 +59,6 @@
             <span class="tag">Blueprints</span>
             <span class="tag">Interfaces</span>
             <span class="tag">Systems</span>
-          </div>
-        <span class="card__cta">View Case Study</span>
-        </a>
-      </div>
-
-      <div class="card-wrap">
-        <a class="card bracket-frame" href="case-study-fish-scaling.html" data-tags="blueprints,systems">
-          <span class="bf-tl"></span><span class="bf-br"></span>
-          <div class="card__thumb">screenshot / clip</div>
-          <h3>Weight-Based Fish Scaling</h3>
-          <p>Caught weight drives mesh scale through a cube-root formula, clamped at both ends and remapped through a Curve Float asset so art direction can override the raw math. Non-uniform scaling adds girth independent of length.</p>
-          <div class="card__meta">
-            <span class="tag">Blueprints</span>
-            <span class="tag">Systems</span>
-          </div>
-        <span class="card__cta">View Case Study</span>
-        </a>
-      </div>
-
-      <div class="card-wrap">
-        <a class="card bracket-frame" href="case-study-shelf-system.html" data-tags="blueprints,systems">
-          <span class="bf-tl"></span><span class="bf-br"></span>
-          <div class="card__thumb">screenshot / clip</div>
-          <h3>Shelf Placement &amp; Sorting</h3>
-          <p>Slot-based placement using TMap/TArray patterns. Diagnosed a slot-freeing bug caused by Remove() instead of clearing the value; refactored toward a TArray of structs carrying SlotTransform and OccupyingBox for clearer ownership.</p>
-          <div class="card__meta">
-            <span class="tag">Blueprints</span>
-            <span class="tag">Systems</span>
-          </div>
-        <span class="card__cta">View Case Study</span>
-        </a>
-      </div>
-
-      <div class="card-wrap">
-        <a class="card bracket-frame" href="case-study-xp-pickup.html" data-tags="blueprints,systems">
-          <span class="bf-tl"></span><span class="bf-br"></span>
-          <div class="card__thumb">screenshot / clip</div>
-          <h3>XP Pickup Attraction</h3>
-          <p>Projectile Movement Component pickups that stay responsive through the attraction phase instead of freezing on ground impact — bShouldBounce kept true with low bounciness and high friction rather than calling StopSimulating().</p>
-          <div class="card__meta">
-            <span class="tag">Blueprints</span>
-            <span class="tag">Systems</span>
-          </div>
-        <span class="card__cta">View Case Study</span>
-        </a>
-      </div>
-
-      <div class="card-wrap">
-        <a class="card bracket-frame" href="case-study-outline-effect.html" data-tags="blueprints">
-          <span class="bf-tl"></span><span class="bf-br"></span>
-          <div class="card__thumb">screenshot / clip</div>
-          <h3>Outline Effect Component</h3>
-          <p>BP_OutlineComponent — a drop-in selectable-object highlight built from Custom Depth Stencil IDs and a post-process material, packaged so it can be added to any actor without extra setup.</p>
-          <div class="card__meta">
-            <span class="tag">Blueprints</span>
           </div>
         <span class="card__cta">View Case Study</span>
         </a>
