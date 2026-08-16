@@ -590,6 +590,54 @@ p { margin: 0 0 1em 0; color: var(--text-dim); }
 .card__cta::after { content: ' →'; }
 
 /* =========================================================
+   Work-in-progress indicators
+   ========================================================= */
+.wip-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-family: var(--font-mono);
+  font-size: 0.66rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--bg);
+  background: var(--accent-warm);
+  padding: 4px 10px;
+  border: 1px solid var(--accent-warm);
+}
+
+.wip-badge::before { content: '⚠'; }
+
+.card__thumb--wip {
+  background-image: repeating-linear-gradient(
+    -45deg,
+    var(--panel-alt),
+    var(--panel-alt) 10px,
+    var(--border-faint) 10px,
+    var(--border-faint) 12px
+  );
+  flex-direction: column;
+  gap: 8px;
+}
+
+.wip-banner {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  border: 1px solid var(--accent-warm);
+  background: var(--panel-alt);
+  padding: 14px 18px;
+  margin-bottom: 32px;
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--accent-warm);
+}
+
+.wip-banner::before { content: '⚠'; font-size: 1rem; }
+
+/* =========================================================
    Case study pages
    ========================================================= */
 .back-link {

@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Contact — Payton</title>
+<title>Spleef But Better — Case Study — Payton</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="css/style.css">
@@ -24,9 +24,9 @@
     <ul class="sidebar__nav">
       <li><a class="sidebar__link" href="index.html"><span>home</span></a></li>
       <li><a class="sidebar__link" href="work.html"><span>work</span></a></li>
-      <li><a class="sidebar__link" href="uefn.html"><span>uefn</span></a></li>
+      <li><a class="sidebar__link is-active" href="uefn.html"><span>uefn</span></a></li>
       <li><a class="sidebar__link" href="resume.html"><span>resume</span></a></li>
-      <li><a class="sidebar__link is-active" href="contact.html"><span>contact</span></a></li>
+      <li><a class="sidebar__link" href="contact.html"><span>contact</span></a></li>
     </ul>
     <div class="sidebar__footer">
       <div class="sidebar__socials">
@@ -42,45 +42,35 @@
   </nav>
 
   <main class="main">
+    <a class="back-link" href="uefn.html">back to uefn</a>
+
+    <div class="wip-banner">under construction — full case study coming soon</div>
+
     <div class="page-header">
-      <span class="eyebrow">// get in touch</span>
-      <h1>Contact</h1>
-      <p>Open to gameplay programming roles and collaborations. The fastest way to reach me is email.</p>
+      <span class="eyebrow">// case study</span>
+      <h1>Spleef But Better</h1>
+      <p>A solo UEFN take on classic Spleef, built entirely inside Fortnite's tile-destruction sandbox.</p>
     </div>
 
-    <div class="contact-grid">
-      <ul class="contact-list">
-        <li>
-          <span class="label mono">Email</span>
-          <a href="mailto:paytonstewartdev@proton.me">paytonstewartdev@proton.me</a>
-        </li>
-        <li>
-          <span class="label mono">Discord</span>
-          <span>Stewpified</span>
-        </li>
-        <li>
-          <span class="label mono">LinkedIn</span>
-          <a href="https://www.linkedin.com/in/payton-stewart-088935293/" target="_blank" rel="noopener">linkedin.com/in/payton-stewart</a>
-        </li>
-      </ul>
-
-      <form class="contact-form" action="mailto:paytonstewartdev@proton.me" method="post" enctype="text/plain">
-        <div class="field">
-          <label for="name">Name</label>
-          <input type="text" id="name" name="name" required>
-        </div>
-        <div class="field">
-          <label for="email">Email</label>
-          <input type="email" id="email" name="email" required>
-        </div>
-        <div class="field">
-          <label for="message">Message</label>
-          <textarea id="message" name="message" rows="5" required></textarea>
-        </div>
-        <button type="submit" class="btn btn--primary">send message</button>
-        <p class="form-note">Opens your email client — this is a static site with no backend. Swap in a service like Formspree if you'd rather handle it in-page.</p>
-      </form>
+    <div class="case-meta-row">
+          <span class="tag">UEFN</span>
+          <span class="tag">Solo Project</span>
+          <span class="wip-badge">WIP</span>
     </div>
+
+    <div class="case-hero-thumb">screenshot / clip</div>
+
+    <div class="content-section">
+      <h2>Overview</h2>
+      <p>Designed, built, and programmed solo inside UEFN (Unreal Editor for Fortnite) — core game functionality, Niagara VFX, user interfaces, widget animations, basic sound design, key art, and level design, all handled end to end.</p>
+    </div>
+
+    <div class="content-section">
+      <h2>Status</h2>
+      <p>This write-up is still in progress. A full breakdown of the tile-destruction mechanics, round/elimination logic, and the design decisions behind them is coming soon — check back for updates.</p>
+    </div>
+
+    <a class="back-link" href="uefn.html" style="margin-top:40px;">back to uefn</a>
 
     <footer class="site-footer">
       © <span id="year"></span> Payton — built with HTML, CSS &amp; a lot of Blueprint debugging.
