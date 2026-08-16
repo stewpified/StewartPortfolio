@@ -67,15 +67,15 @@
       <p>The first challenge for creating this system was getting interactions down. I've designed interactions before, but I hadn't done it in an optimal manner, and I've been learning a lot from other projects. For Bento! I was largely inspired by the game Fruitbus and how it handles the player's inventory. That game has the player physically hold items and tools with their hands rather than a hotbar or a menu-based inventory (though it does have one for the backpack). I found that idea rather charming, so I developed my own take on the system where the player can hold items in each hand and use them accordingly.</p>
 
       <figure class="case-media">
-        <img src="assets/hands-on-cooking/interaction-highlight.gif" alt="Highlighting an interactable object when it's looked at">
-        <figcaption>in-editor capture — interaction highlight on a lookable object</figcaption>
+        <img src="assets/hands-on-cooking/new-food.gif" alt="Holding a food item directly in the player's hand">
+        <figcaption>in-editor capture — holding a food item in real space</figcaption>
       </figure>
 
       <p>The next step was creating tools that passed their interactions to other actors, so I built a Blueprint Interface system that included Tool Interactions. If the player is holding a tool like a knife or a bento box, the system checks to see if they're looking at something interactable when they activate an interaction. If the interacted actor implements the <span class="mono">BPI_ToolInteraction</span> interface, it sends a message containing the tool type, and the interacted actor responds accordingly. This is done using an enumerator that contains each tool type and switches depending on what is passed through.</p>
 
       <figure class="case-media">
-        <img src="assets/hands-on-cooking/new-food.gif" alt="A food actor spawned and driven by a Data Table">
-        <figcaption>in-editor capture — a Data Table-driven food actor</figcaption>
+        <img src="assets/hands-on-cooking/interaction-highlight.gif" alt="Rice mechanics driven by the Data Table-backed food actor">
+        <figcaption>in-editor capture — rice mechanics on the Data Table-driven food actor</figcaption>
       </figure>
 
       <p>Another hurdle was making a functional Food actor. This went through a few versions until I eventually landed on using a Data Table that drives the Food actor. Essentially, food can be spawned by another actor, and it passes through an index in the data table. This data table contains every bit of info the food actor needs, from its default mesh to the diced meshes or its cook stages (raw, cooked, burnt). For those unaware, Data Tables in UE5 are built off of a structure — you create a structure containing all of the information something may need, then the Data Table lets you fill out that information for any number of variations. This made handling the cooking significantly easier, as every actor that dealt with food didn't need to worry about handling various actors with different functions. Every food actor can interact with every cooking tool, and they respond accordingly.</p>
