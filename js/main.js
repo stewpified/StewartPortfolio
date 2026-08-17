@@ -37,4 +37,37 @@ document.addEventListener('DOMContentLoaded', () => {
       });
     });
   }
+
+  // Image carousels (Behind the Scenes / Gameplay, etc.)
+  document.querySelectorAll('[data-carousel]').forEach((carousel) => {
+    const slides = carousel.querySelectorAll('.carousel__slide');
+    if (!slides.length) return; // empty-state carousel, nothing to wire up
+
+    const dotsContainer = carousel.querySelector('[data-carousel-dots]');
+    const prevBtn = carousel.querySelector('[data-carousel-prev]');
+    const nextBtn = carousel.querySelector('[data-carousel-next]');
+    let current = 0;
+
+    // build dots to match slide count
+    if (dotsContainer) {
+      slides.forEach((_, i) => {
+        const dot = document.createElement('button');
+        dot.setAttribute('aria-label', `Go to image ${i + 1}`);
+        if (i === 0) dot.classList.add('is-active');
+        dot.addEventListener('click', () => show(i));
+        dotsContainer.appendChild(dot);
+      });
+    }
+
+    function show(index) {
+      slides[current].classList.remove('is-active');
+      if (dotsContainer) dotsContainer.children[current].classList.remove('is-active');
+      current = (index + slides.length) % slides.length;
+      slides[current].classList.add('is-active');
+      if (dotsContainer) dotsContainer.children[current].classList.add('is-active');
+    }
+
+    if (prevBtn) prevBtn.addEventListener('click', () => show(current - 1));
+    if (nextBtn) nextBtn.addEventListener('click', () => show(current + 1));
+  });
 });

@@ -551,6 +551,14 @@ p { margin: 0 0 1em 0; color: var(--text-dim); }
   color: var(--text-faint);
   border: 1px dashed var(--border-faint);
   overflow: hidden;
+  position: relative;
+}
+
+.card__thumb .wip-badge {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  z-index: 2;
 }
 
 .card__thumb--media {
@@ -832,6 +840,140 @@ p { margin: 0 0 1em 0; color: var(--text-dim); }
   height: 100%;
   border: 0;
 }
+
+/* =========================================================
+   Embedded YouTube video — same responsive pattern as the
+   BlueprintUE embed above
+   ========================================================= */
+.yt-embed {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+  border: 1px solid var(--border);
+  background: var(--panel-alt);
+  margin-bottom: 8px;
+}
+
+.yt-embed iframe {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+/* =========================================================
+   Side-by-side image carousels
+   ========================================================= */
+.carousel-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+  margin: 8px 0 36px;
+}
+
+@media (max-width: 700px) {
+  .carousel-row { grid-template-columns: 1fr; }
+}
+
+.carousel {
+  border: 1px solid var(--border);
+  background: var(--panel-alt);
+}
+
+.carousel__label {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--text);
+  padding: 12px 14px;
+  border-bottom: 1px solid var(--border);
+  background: var(--panel);
+}
+
+.carousel__track {
+  position: relative;
+  height: 220px;
+  overflow: hidden;
+}
+
+.carousel__slides {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.carousel__slide {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.2s ease;
+}
+
+.carousel__slide.is-active {
+  opacity: 1;
+  visibility: visible;
+}
+
+.carousel__track--empty {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--text-faint);
+}
+
+.carousel__arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: var(--panel);
+  border: 1px solid var(--border);
+  width: 26px;
+  height: 26px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  color: var(--text-dim);
+  z-index: 2;
+  cursor: pointer;
+  padding: 0;
+}
+
+.carousel__arrow:hover { color: var(--accent-warm); border-color: var(--accent-warm); }
+
+.carousel__arrow--prev { left: 8px; }
+.carousel__arrow--next { right: 8px; }
+
+.carousel__dots {
+  display: flex;
+  justify-content: center;
+  gap: 6px;
+  padding: 10px 0;
+  border-top: 1px solid var(--border);
+}
+
+.carousel__dots button {
+  width: 6px;
+  height: 6px;
+  padding: 0;
+  border: none;
+  background: var(--border-faint);
+  cursor: pointer;
+}
+
+.carousel__dots button.is-active { background: var(--accent-warm); }
 
 /* =========================================================
    Resume page
