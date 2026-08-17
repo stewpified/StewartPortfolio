@@ -7,7 +7,7 @@ sidebar nav, built in plain HTML/CSS/JS — no build step required.
 
 ```
 index.html      Home
-work.html       Work (filterable project grid)
+ue5.html         UE5 (filterable project grid)
 resume.html     Resume
 contact.html    Contact
 css/style.css   All styles

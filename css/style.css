@@ -538,7 +538,8 @@ p { margin: 0 0 1em 0; color: var(--text-dim); }
 }
 
 .card__thumb {
-  height: 140px;
+  width: 100%;
+  aspect-ratio: 16 / 9;
   background: var(--panel-alt);
   margin-bottom: 16px;
   display: flex;
