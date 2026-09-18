@@ -97,6 +97,26 @@ Sharp corner marks (2px, `--accent`) that appear on hover, or always-on
 via the `.always-on` modifier. Used on the hero panel and every project
 card. Reads like a targeting-reticle highlight rather than a soft glow.
 
+### Image-asset frame (`.case-media`)
+The bordered figure/figcaption frame used for standalone screenshots
+and renders inside case study body content (including the 2x2
+render-grid pairs). The frame **wraps to the image's natural size**
+rather than cropping to a fixed height:
+```css
+.case-media img {
+  display: block;
+  width: 100%;
+  height: auto;
+  margin: 0 auto;
+}
+```
+The image scales to the frame's full width and keeps its own aspect
+ratio — nothing is cropped or letterboxed. This is distinct from the
+site's other fixed-size image contexts, which intentionally still
+crop for layout consistency: card thumbnails (`.card__thumb`, locked
+to 16:9) and carousel slides (`.carousel__slide`, cropped to a fixed
+track height so slides can cross-fade without resizing the frame).
+
 ### Inverted active/hover states
 Instead of color-only hover states, interactive chrome **inverts**:
 background flips to `--border` (near-black) and text flips to `--bg`
