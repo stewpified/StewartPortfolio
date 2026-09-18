@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Game Art — Payton</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<div class="topbar">
+  <span class="topbar__title">PAYTON<span style="color:var(--accent)">_</span>DEV</span>
+  <button class="topbar__toggle" aria-label="Toggle navigation" aria-expanded="false">☰</button>
+</div>
+
+<div class="shell">
+  <nav class="sidebar" aria-label="Primary">
+    <div class="sidebar__brand">
+      <p class="sidebar__brand-title">PAYTON<span style="color:var(--accent)">_</span>DEV</p>
+      <span class="sidebar__brand-sub">gameplay & systems designer</span>
+    </div>
+    <ul class="sidebar__nav">
+      <li><a class="sidebar__link" href="index.html"><span>home</span></a></li>
+      <li><a class="sidebar__link" href="ue5.html"><span>ue5</span></a></li>
+      <li><a class="sidebar__link" href="uefn.html"><span>uefn</span></a></li>
+      <li><a class="sidebar__link is-active" href="game-art.html"><span>game art</span></a></li>
+      <li><a class="sidebar__link" href="resume.html"><span>resume</span></a></li>
+      <li><a class="sidebar__link" href="contact.html"><span>contact</span></a></li>
+    </ul>
+    <div class="sidebar__footer">
+      <div class="sidebar__status">
+        <span class="sidebar__status-dot"></span>
+        currently building in UE5
+      </div>
+    </div>
+  </nav>
+
+  <main class="main">
+    <div class="page-header">
+      <span class="eyebrow">// environment &amp; asset art</span>
+      <h1>Game Art</h1>
+      <p>Environment and asset art work — hero props, modular kits, and scene composition, shown through renders, cinematics, and interactive 3D models.</p>
+    </div>
+
+    <div class="work-grid work-grid--single">
+
+      <div class="card-wrap">
+        <a class="card bracket-frame" href="case-study-subway-settlement.html" data-tags="art">
+          <span class="bf-tl"></span><span class="bf-br"></span>
+          <div class="card__thumb card__thumb--wip">
+            <span class="wip-badge">WIP</span>
+          </div>
+          <h3>Subway Settlement</h3>
+          <p>An environment art piece built around a repurposed subway station — hero asset, props, and a modular kit tying the scene together.</p>
+          <span class="card__cta">View Case Study</span>
+        </a>
+      </div>
+
+    </div>
+
+    <footer class="site-footer">
+      © <span id="year"></span> Payton — built with HTML, CSS &amp; a lot of Blueprint debugging.
+    </footer>
+  </main>
+</div>
+
+<script src="js/main.js"></script>
+<script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+</body>
+</html>
