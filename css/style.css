@@ -992,6 +992,11 @@ p { margin: 0 0 1em 0; color: var(--text-dim); }
   overflow: hidden;
 }
 
+.carousel__track--fit {
+  height: auto;
+  aspect-ratio: 3050 / 1456;
+}
+
 .carousel__slides {
   position: relative;
   width: 100%;
