@@ -7,6 +7,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="css/style.css">
+<script type="module" src="https://unpkg.com/@google/model-viewer@^3.0/dist/model-viewer.min.js"></script>
 </head>
 <body>
 
@@ -63,20 +64,33 @@
     </div>
 
     <div class="content-section">
-      <h2>3D Models</h2>
-      <div class="model-row">
-        <div class="model-slot">
-          <div class="model-slot__label">Hero Asset</div>
-          <div class="model-slot__body">3d model</div>
-        </div>
-        <div class="model-slot">
-          <div class="model-slot__label">Props</div>
-          <div class="model-slot__body">3d model</div>
-        </div>
-        <div class="model-slot">
-          <div class="model-slot__label">Modular Assets</div>
-          <div class="model-slot__body">3d model</div>
-        </div>
+      <h2>Hero Asset</h2>
+      <figure class="case-media">
+        <model-viewer src="assets/subway-settlement/hero-asset.glb" camera-controls auto-rotate exposure="1"></model-viewer>
+        <figcaption>interactive 3D model — drag to rotate</figcaption>
+      </figure>
+    </div>
+
+    <div class="content-section">
+      <h2>Modular &amp; Props</h2>
+      <p>Colored and wireframe renders of the modular kit and prop set used to dress the scene.</p>
+      <div class="render-grid">
+        <figure class="case-media">
+          <img src="assets/subway-settlement/modular-colored.png" alt="Modular kit — colored render">
+          <figcaption>Modular Kit — Colored</figcaption>
+        </figure>
+        <figure class="case-media">
+          <img src="assets/subway-settlement/modular-wireframe.png" alt="Modular kit — wireframe render">
+          <figcaption>Modular Kit — Wireframe</figcaption>
+        </figure>
+        <figure class="case-media">
+          <img src="assets/subway-settlement/props-colored.png" alt="Props — colored render">
+          <figcaption>Props — Colored</figcaption>
+        </figure>
+        <figure class="case-media">
+          <img src="assets/subway-settlement/props-wireframe.png" alt="Props — wireframe render">
+          <figcaption>Props — Wireframe</figcaption>
+        </figure>
       </div>
     </div>
 
