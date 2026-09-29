@@ -40,28 +40,71 @@
   <main class="main">
     <a class="back-link" href="uefn.html">back to uefn</a>
 
-    <div class="wip-banner">under construction — full case study coming soon</div>
-
     <div class="page-header">
       <span class="eyebrow">// case study</span>
       <h1>Block Party: Total Destruction</h1>
-      <p>Two teams fight in an underground arena with the objective of destroying their opponents' tower, featuring a destruction-based economy system — who will snowball to victory?</p>
+      <p>A team-based shooter focused on destroying the opposing team's tower of blocks, driven by a "destruction economy" that keeps both sides in the fight.</p>
     </div>
 
-    <div class="case-meta-row">
-          <span class="wip-badge">WIP</span>
-    </div>
-
-    <div class="case-hero-thumb">screenshot / clip</div>
+    <figure class="case-media">
+      <img src="assets/block-party/cover.jpg" alt="Block Party: Total Destruction key art — two players aiming rocket launchers at each other">
+    </figure>
 
     <div class="content-section">
       <h2>Overview</h2>
-      <p>Designed, built, and programmed solo inside UEFN (Unreal Editor for Fortnite) — core game functionality, Niagara VFX, user interfaces, widget animations, basic sound design, key art, and level design, all handled end to end.</p>
+      <p>Block Party: Total Destruction is a team-based shooter focused on destroying the opposing team's tower of blocks. It features a curated selection of weapons that are unlocked though a "destruction economy" called Total Destruction. As the match progresses, the total amount of blocks destroyed will change the available loadouts of the players on both teams. This allows players on both sides to have a chance at changing the tides of play, without giving one team too much of an upper hand.</p>
     </div>
 
     <div class="content-section">
-      <h2>Status</h2>
-      <p>This write-up is still in progress. A full breakdown of the destruction mechanics, round structure, and the design decisions behind them is coming soon — check back for updates.</p>
+      <h2>In-Game Screenshots</h2>
+      <div class="carousel-row">
+        <div class="carousel" data-carousel>
+          <div class="carousel__track">
+            <button class="carousel__arrow carousel__arrow--prev" aria-label="Previous image" data-carousel-prev>‹</button>
+            <div class="carousel__slides">
+              <img class="carousel__slide is-active" src="assets/block-party/ui-team-select-01.png" alt="Team select screen with Team Blue highlighted">
+              <img class="carousel__slide" src="assets/block-party/ui-team-select-02.png" alt="Team select screen with Team Red highlighted">
+              <img class="carousel__slide" src="assets/block-party/gameplay-02.png" alt="Player aiming a rocket launcher toward the pit, weapons and explosives stores in the background">
+              <img class="carousel__slide" src="assets/block-party/gameplay-03.png" alt="Player firing at the enemy team's blue block tower from the red team's territory">
+              <img class="carousel__slide" src="assets/block-party/gameplay-01.png" alt="Restocking prompt with rank-up rewards displayed">
+            </div>
+            <button class="carousel__arrow carousel__arrow--next" aria-label="Next image" data-carousel-next>›</button>
+          </div>
+          <div class="carousel__dots" data-carousel-dots></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="content-section">
+      <p>The design of this game changed radically several times, initially featuring a much larger loot pool and an economy based on earning currency from eliminations and objectives. The game was quite complex and led to a lot of confusion during early playtests. This led me to fundamentally rework the entire game, swapping the objective from destroying your own tower to your opponents, and then reducing the amount of weapon/loadout options by 90%. I also massively reduced the lobby space to better guide players to loadouts and then the PvP objective.</p>
+      <p>Further playtests and design sprints led me to an economy not based on eliminations but rather on the core of the game's original objective: destruction. I also wanted to deal with the issue of snowballing. The team in the lead could, in many cases, rapidly snowball to victory, leaving the other team in the dust. The Total Destruction system accounts for this by rewarding players who destroy blocks quickly, but it also gives the losing team a chance to catch up if they play well.</p>
+    </div>
+
+    <div class="content-section">
+      <h2>Total Destruction Example</h2>
+      <figure class="case-media">
+        <img src="assets/block-party/total-destruction-example.png" alt="Weapon store showing loadouts locked behind 50% and 25% Total Destruction thresholds">
+        <figcaption>Weapon tiers unlock as the match's total destruction percentage climbs, letting either team turn the tide.</figcaption>
+      </figure>
+    </div>
+
+    <div class="content-section">
+      <h2>Editor Screenshots</h2>
+      <div class="carousel-row">
+        <div class="carousel" data-carousel>
+          <div class="carousel__track">
+            <button class="carousel__arrow carousel__arrow--prev" aria-label="Previous image" data-carousel-prev>‹</button>
+            <div class="carousel__slides">
+              <img class="carousel__slide is-active" src="assets/block-party/editor-00-hub-overview.png" alt="Editor view of the hub with the Block Party sign, weapons store, and explosives store">
+              <img class="carousel__slide" src="assets/block-party/editor-01-pit-spawn.png" alt="UEFN editor view of the pit and spawn area blockout">
+              <img class="carousel__slide" src="assets/block-party/editor-02-hub-aerial.png" alt="Aerial editor view of the hub, weapons store, and explosives store layout">
+              <img class="carousel__slide" src="assets/block-party/editor-03-hub-aerial-debug.png" alt="Aerial editor view of the hub with debug volumes and trigger lines visible">
+            </div>
+            <button class="carousel__arrow carousel__arrow--next" aria-label="Next image" data-carousel-next>›</button>
+          </div>
+          <div class="carousel__dots" data-carousel-dots></div>
+        </div>
+      </div>
     </div>
 
     <a class="back-link" href="uefn.html" style="margin-top:40px;">back to uefn</a>
