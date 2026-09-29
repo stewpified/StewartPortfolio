@@ -43,10 +43,13 @@ document.addEventListener('DOMContentLoaded', () => {
     const slides = carousel.querySelectorAll('.carousel__slide');
     if (!slides.length) return; // empty-state carousel, nothing to wire up
 
+    const slidesTrack = carousel.querySelector('.carousel__slides');
     const dotsContainer = carousel.querySelector('[data-carousel-dots]');
     const prevBtn = carousel.querySelector('[data-carousel-prev]');
     const nextBtn = carousel.querySelector('[data-carousel-next]');
     let current = 0;
+
+    slides[0].classList.add('is-active');
 
     // build dots to match slide count
     if (dotsContainer) {
@@ -65,6 +68,7 @@ document.addEventListener('DOMContentLoaded', () => {
       current = (index + slides.length) % slides.length;
       slides[current].classList.add('is-active');
       if (dotsContainer) dotsContainer.children[current].classList.add('is-active');
+      if (slidesTrack) slidesTrack.style.transform = `translateX(-${current * 100}%)`;
     }
 
     if (prevBtn) prevBtn.addEventListener('click', () => show(current - 1));

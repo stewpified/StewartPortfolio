@@ -998,25 +998,18 @@ p { margin: 0 0 1em 0; color: var(--text-dim); }
 }
 
 .carousel__slides {
-  position: relative;
+  display: flex;
   width: 100%;
   height: 100%;
+  transition: transform 0.45s cubic-bezier(0.65, 0, 0.35, 1);
+  will-change: transform;
 }
 
 .carousel__slide {
-  position: absolute;
-  inset: 0;
+  flex: 0 0 100%;
   width: 100%;
   height: 100%;
   object-fit: cover;
-  opacity: 0;
-  visibility: hidden;
-  transition: opacity 0.2s ease;
-}
-
-.carousel__slide.is-active {
-  opacity: 1;
-  visibility: visible;
 }
 
 .carousel__track--empty {
