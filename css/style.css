@@ -1090,11 +1090,13 @@ p { margin: 0 0 1em 0; color: var(--text-dim); }
 }
 
 .resume-group-title {
-  font-size: 0.78rem;
+  font-family: var(--font-mono);
+  font-size: 0.82rem;
+  font-weight: 700;
   text-transform: uppercase;
-  letter-spacing: 0.06em;
-  color: var(--text-faint);
-  margin-bottom: 4px;
+  letter-spacing: 0.08em;
+  color: var(--accent);
+  margin: 6px 0 2px;
 }
 
 .resume-entry {
