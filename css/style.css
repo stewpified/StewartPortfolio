@@ -1089,12 +1089,27 @@ p { margin: 0 0 1em 0; color: var(--text-dim); }
   border-bottom: 1px solid var(--border-faint);
 }
 
+.resume-group-title {
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--text-faint);
+  margin-bottom: 4px;
+}
+
 .resume-entry {
   display: grid;
   grid-template-columns: 160px 1fr;
   gap: 20px;
   padding: 18px 0;
   border-bottom: 1px solid var(--border-faint);
+}
+
+.resume-entry p {
+  font-size: 0.88rem;
+  line-height: 1.55;
+  color: var(--text-secondary, var(--text-faint));
+  margin-top: 6px;
 }
 
 @media (max-width: 650px) {
