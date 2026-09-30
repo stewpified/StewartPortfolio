@@ -793,6 +793,27 @@ p { margin: 0 0 1em 0; color: var(--text-dim); }
 .code-block .k { color: var(--accent-warm); }
 .code-block .v { color: var(--accent); }
 
+.case-code {
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  color: var(--text-faint);
+  letter-spacing: 0.04em;
+  margin-top: 6px;
+}
+
+.case-code strong { color: var(--accent-warm); font-weight: 600; }
+
+.case-cta {
+  margin-top: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+@media (max-width: 480px) {
+  .case-cta { flex-direction: column; align-items: stretch; }
+}
+
 .case-meta-row {
   display: flex;
   flex-wrap: wrap;
